@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ai-powered-travel-agent
+    runtime: python
+    buildCommand: pip install -r Backend/requirements.txt
+    startCommand: gunicorn --chdir Backend app:app
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: MURF_API_KEY
+        sync: false
